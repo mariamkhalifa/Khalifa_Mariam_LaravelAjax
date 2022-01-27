@@ -37129,11 +37129,13 @@ module.exports = function(module) {
   "use strict";
 
   console.log('linked');
-  var searchField = document.querySelector('#search'); //const searchResults = document.querySelector('#searchResults');
+  var searchField = document.querySelector('#search');
 
   function showResults(e) {
     console.log('called');
-    var str = e.currentTarget.value; //searchResults.innerHTML = '';
+    var str = e.currentTarget.value;
+    var searchResults = document.querySelector('#searchResults');
+    searchResults.innerHTML = '';
 
     if (str) {
       var url = "api/search-games?search=".concat(str);
@@ -37141,6 +37143,18 @@ module.exports = function(module) {
         return res.json();
       }).then(function (data) {
         console.log(data);
+
+        if (data.length > 0) {
+          console.log(data);
+          data.forEach(function (item) {
+            var newImage = item.image.slice(7, 53);
+            var imagePath = "storage/".concat(newImage); //console.log(imagePath);
+
+            searchResults.innerHTML += "<li>\n                            <a href=\"#\">\n                                <p>".concat(item.name, "</p>\n                                <img src=\"").concat(imagePath, "\" alt=\"game image\">\n                            </a>\n                        </li>");
+          });
+        } else {
+          searchResults.innerHTML = 'No results match your search.';
+        }
       })["catch"](function (err) {
         return console.log(err);
       });
@@ -37204,7 +37218,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nValidationError: Invalid options object. Sass Loader has been initialized using an options object that does not match the API schema.\n - options has an unknown property 'outputStyle'. These properties are valid:\n   object { implementation?, sassOptions?, prependData?, sourceMap?, webpackImporter? }\n    at validate (/var/www/html/node_modules/sass-loader/node_modules/schema-utils/dist/validate.js:98:11)\n    at Object.loader (/var/www/html/node_modules/sass-loader/dist/index.js:36:28)\n    at /var/www/html/node_modules/webpack/lib/NormalModule.js:316:20\n    at /var/www/html/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /var/www/html/node_modules/loader-runner/lib/LoaderRunner.js:233:18\n    at runSyncOrAsync (/var/www/html/node_modules/loader-runner/lib/LoaderRunner.js:143:3)\n    at iterateNormalLoaders (/var/www/html/node_modules/loader-runner/lib/LoaderRunner.js:232:2)\n    at /var/www/html/node_modules/loader-runner/lib/LoaderRunner.js:205:4\n    at /var/www/html/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:85:15\n    at processTicksAndRejections (internal/process/task_queues.js:79:11)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 

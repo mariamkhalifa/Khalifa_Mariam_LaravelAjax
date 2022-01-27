@@ -4,7 +4,15 @@
 <section>
     <h2>Edit Game</h2>
 
-    <form method="POST" action="{{ route('games.update') }}" enctype="multipart/form-data">
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+
+        <p>{{ $error }} </p>
+
+        @endforeach
+    @endif
+
+    <form method="POST" action="{{ route('games.update', ['game' => $game] ) }}" enctype="multipart/form-data">
     @csrf
     @method('put')
 

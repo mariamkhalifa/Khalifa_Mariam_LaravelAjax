@@ -72,7 +72,7 @@
             <input id="search" name="search" type="text">
         </form>
         
-        <ul id="searchResuts"></ul>
+        <ul id="searchResults">Search Results will display here...</ul>
 
 </section>
 @endsection

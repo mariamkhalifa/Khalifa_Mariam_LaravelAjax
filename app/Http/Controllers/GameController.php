@@ -101,7 +101,6 @@ class GameController extends Controller
 
         $imageName = Storage::putFile('public', $request->image);
 
-        $game = new Game;
         $game->name = $request->get('name');
         $game->image = $imageName;
         $game->release_year = $request->get('release_year');
@@ -109,7 +108,7 @@ class GameController extends Controller
         $game->review = $request->get('review');
         $game->user()->associate($request->user());
 
-        $game->update($request->all());
+        $game->save();
 
         return redirect('/home');
 
