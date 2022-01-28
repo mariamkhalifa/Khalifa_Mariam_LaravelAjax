@@ -1,0 +1,44 @@
+
+#header {
+    background-color: rgba($color: rgb(38, 53, 73), $alpha: .3);
+    @include col;
+}
+
+#logo {
+    font-family: $fontDisplay;
+    font-size: 60px;
+    order: 2;
+    align-self: center;
+    margin-bottom: 60px;
+    margin-top: 40px;
+}
+
+#burger {
+    align-self: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 30px;
+    width: fit-content;
+    cursor: pointer;
+    @include transition;
+    @include hover1; 
+}
+
+#burger.rotated {
+    transform: rotate(90deg);
+}
+
+#mainNav {
+   display: none;
+}
+
+#mainNav.visible {
+    @include col;
+    margin-top: 20px;
+    margin-left: 20px;
+    li a{
+        @include transition;
+        @include hover2;
+    }
+}
+

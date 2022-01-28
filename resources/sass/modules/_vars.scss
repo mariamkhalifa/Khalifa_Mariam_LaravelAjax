@@ -1,0 +1,46 @@
+// fonts
+
+$fontDisplay: 'Black Ops One', sans-serif;
+$font: 'Titillium Web', sans-serif;
+
+// colours
+
+$black: #1a1a1a;
+$grey: #909cb6;
+$white: #e6e6e6;
+$blue: rgb(1, 145, 255);
+
+// mixins
+
+@mixin col {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin transition {
+    transition: all .5s ease-in-out;
+}
+
+@mixin hover1 {
+    &:hover {
+        transform: scale(.95);
+    }
+}
+
+@mixin hover2 {
+    &:hover {
+        color: $blue;
+    }
+}
+
+@mixin hover3 {
+    &:hover {
+        background-color: $black;
+        border: 1px solid $blue;
+    }
+}

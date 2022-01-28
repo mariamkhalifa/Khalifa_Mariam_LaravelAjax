@@ -3,8 +3,19 @@
     "use strict";
     console.log('linked');
 
+    const burger = document.querySelector('#burger');
+    const mainNav = document.querySelector('#mainNav');
     const searchField = document.querySelector('#search');
-    
+
+
+    // functions
+
+    function toggleNav() {
+        burger.classList.toggle('rotated');
+        mainNav.classList.toggle('visible');
+        gsap.from(mainNav, {autoAlpha: 0, duration: 1});
+        gsap.to(mainNav, {autoAlpha: 1, duration: 1});
+    }
 
 
     function showResults(e) {
@@ -27,12 +38,12 @@
                     console.log(data);
                     
                     data.forEach(item=>{
-                        let newImage = item.image.slice(7,53);
+                        let newImage = item.image.slice(7);
                         let imagePath = `storage/${newImage}`;
                         //console.log(imagePath);
                         searchResults.innerHTML +=
                         `<li>
-                            <a href="#">
+                            <a href="/games/show/${item.id}">
                                 <p>${item.name}</p>
                                 <img src="${imagePath}" alt="game image">
                             </a>
@@ -46,6 +57,14 @@
         }
     }
 
-    searchField.addEventListener('keyup', showResults);
+
+    // events
+
+    burger.addEventListener('click', toggleNav);
+
+    if(searchField) {
+        searchField.addEventListener('keyup', showResults);
+    }
+    
 
 })();

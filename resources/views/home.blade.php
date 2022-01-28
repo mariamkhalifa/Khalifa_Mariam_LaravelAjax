@@ -2,37 +2,23 @@
 
 @section('content')
 <section>
-    <h2>Home Page</h2>
+    <h2 class="hidden">Home Page</h2>
 
-    <div>
+    <div id="welcome">
         @if (session('status'))
             <div>
                 {{ session('status') }}
             </div>
         @endif
 
-        You are logged in!
+        Hello, {{ Auth::user()->name }}!
     </div>
     
-    <section>
-        <h3>Wall Messages</h3>
+    <section id="wallCon" class="container">
+        <h3 class="headline">Wall Messages</h3>
 
-        <ul>
-            @foreach($chats as $chat)
-            <li>
-                <p>{{ $chat->user->name }}</p>
-                <p>{{ $chat->text }}</p>
-                <form method="POST" action="{{ route('chats.delete', ['chat' => $chat] ) }}">
-                    @csrf
-                    @method('delete')
-                    <input type="submit" value="delete">
-                </form>
-            </li>
-            @endforeach
-        </ul>
-
-        <section>
-            <h2>Add New Chat Message</h2>
+        <section id="newMessageCon">
+            <h2>Post A New Wall Message</h2>
 
             <form method="POST" action="{{ route('chats.store') }}" enctype="multipart/form-data">
             @csrf
@@ -44,6 +30,25 @@
 
             </form>
         </section>
+
+        <ul>
+            @foreach($chats as $chat)
+            <li class="messageCard">
+                <p class="messageName">{{ $chat->user->name }}</p>
+                <p class="messageText">{{ $chat->text }}</p>
+                <p class="messageTime">at {{ $chat->created_at }}</p>
+                @if(Auth::user()->id === $chat->user->id)
+                <form method="POST" action="{{ route('chats.delete', ['chat' => $chat] ) }}">
+                    @csrf
+                    @method('delete')
+                    <input class="messageDelete" type="submit" value="delete">
+                </form>
+                @endif
+            </li>
+            @endforeach
+        </ul>
+
+        
     </section>
 
     <section>

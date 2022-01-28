@@ -37129,7 +37129,22 @@ module.exports = function(module) {
   "use strict";
 
   console.log('linked');
-  var searchField = document.querySelector('#search');
+  var burger = document.querySelector('#burger');
+  var mainNav = document.querySelector('#mainNav');
+  var searchField = document.querySelector('#search'); // functions
+
+  function toggleNav() {
+    burger.classList.toggle('rotated');
+    mainNav.classList.toggle('visible');
+    gsap.from(mainNav, {
+      autoAlpha: 0,
+      duration: 1
+    });
+    gsap.to(mainNav, {
+      autoAlpha: 1,
+      duration: 1
+    });
+  }
 
   function showResults(e) {
     console.log('called');
@@ -37147,10 +37162,10 @@ module.exports = function(module) {
         if (data.length > 0) {
           console.log(data);
           data.forEach(function (item) {
-            var newImage = item.image.slice(7, 53);
+            var newImage = item.image.slice(7);
             var imagePath = "storage/".concat(newImage); //console.log(imagePath);
 
-            searchResults.innerHTML += "<li>\n                            <a href=\"#\">\n                                <p>".concat(item.name, "</p>\n                                <img src=\"").concat(imagePath, "\" alt=\"game image\">\n                            </a>\n                        </li>");
+            searchResults.innerHTML += "<li>\n                            <a href=\"/games/show/".concat(item.id, "\">\n                                <p>").concat(item.name, "</p>\n                                <img src=\"").concat(imagePath, "\" alt=\"game image\">\n                            </a>\n                        </li>");
           });
         } else {
           searchResults.innerHTML = 'No results match your search.';
@@ -37159,9 +37174,14 @@ module.exports = function(module) {
         return console.log(err);
       });
     }
-  }
+  } // events
 
-  searchField.addEventListener('keyup', showResults);
+
+  burger.addEventListener('click', toggleNav);
+
+  if (searchField) {
+    searchField.addEventListener('keyup', showResults);
+  }
 })();
 
 /***/ }),

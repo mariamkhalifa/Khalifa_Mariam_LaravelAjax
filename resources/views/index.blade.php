@@ -7,7 +7,9 @@
         <title>Metal Gear Solid Fans</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Titillium+Web:wght@200;400;700&display=swap" rel="stylesheet">        
 
         <!-- Styles -->
         <link href="/css/app.css" rel="stylesheet">
