@@ -51,28 +51,28 @@
         
     </section>
 
-    <section>
-        <h3>My Games</h3>
+    <section id="gamesCon" class="container">
+        <h3 class="headline">My Games</h3>
 
         <ul>
             @foreach($games as $game)
-            <li><a href="{{ route('games.show', ['game' => $game] ) }}">
-                <img src="{{ $game->imageUri }}" alt="game image">
-                <p>{{ $game->name }}</p>
-                <p>{{ $game->release_year }}</p>
+            <li class="gameCard"><a href="{{ route('games.show', ['game' => $game] ) }}">
+                <img class="gameImg" src="{{ $game->imageUri }}" alt="game image">
+                <p class="gameName">{{ $game->name }}</p>
+                <p class="gameYear">{{ $game->release_year }}</p>
             </a></li>
             @endforeach
         </ul>
 
 
-        <a href="{{ route('games.add') }}"><div>+</div>Add Game</a>
+        <a id="gameAdd" href="{{ route('games.add') }}"><div>+</div>Add Game</a>
     </section>
 
-    <section>
+    <section id="searchCon" class="container">
         <h2>Search All Games</h2>
         <p>You may search for all games added by all users. Check what other fans think about MGS games.</p>
        
-        <form>
+        <form id="searchForm">
             <label for="search">Search</label>
             <input id="search" name="search" type="text">
         </form>

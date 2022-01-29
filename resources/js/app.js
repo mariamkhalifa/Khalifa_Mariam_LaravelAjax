@@ -31,23 +31,24 @@
 
             fetch(url)
             .then(res=>res.json())
-            .then(data=>{
-                console.log(data);
+            .then(games=>{
+                console.log(games);
 
-                if(data.length>0) {
-                    console.log(data);
+                if(games.length>0) {
+                    console.log(games);
                     
-                    data.forEach(item=>{
-                        let newImage = item.image.slice(7);
+                    games.forEach(game=>{
+                        let newImage = game.image.slice(7);
                         let imagePath = `storage/${newImage}`;
                         //console.log(imagePath);
                         searchResults.innerHTML +=
                         `<li>
-                            <a href="/games/show/${item.id}">
-                                <p>${item.name}</p>
+                            <a href="/games/show/${game.id}">
+                                <p>${game.name}</p>
                                 <img src="${imagePath}" alt="game image">
                             </a>
-                        </li>`
+                        </li>`;
+                        searchResults.classList.add('results');
                     })
                 } else {
                     searchResults.innerHTML = 'No results match your search.';

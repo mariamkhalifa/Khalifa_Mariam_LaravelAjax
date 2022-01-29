@@ -37156,16 +37156,17 @@ module.exports = function(module) {
       var url = "api/search-games?search=".concat(str);
       fetch(url).then(function (res) {
         return res.json();
-      }).then(function (data) {
-        console.log(data);
+      }).then(function (games) {
+        console.log(games);
 
-        if (data.length > 0) {
-          console.log(data);
-          data.forEach(function (item) {
-            var newImage = item.image.slice(7);
+        if (games.length > 0) {
+          console.log(games);
+          games.forEach(function (game) {
+            var newImage = game.image.slice(7);
             var imagePath = "storage/".concat(newImage); //console.log(imagePath);
 
-            searchResults.innerHTML += "<li>\n                            <a href=\"/games/show/".concat(item.id, "\">\n                                <p>").concat(item.name, "</p>\n                                <img src=\"").concat(imagePath, "\" alt=\"game image\">\n                            </a>\n                        </li>");
+            searchResults.innerHTML += "<li>\n                            <a href=\"/games/show/".concat(game.id, "\">\n                                <p>").concat(game.name, "</p>\n                                <img src=\"").concat(imagePath, "\" alt=\"game image\">\n                            </a>\n                        </li>");
+            searchResults.classList.add('results');
           });
         } else {
           searchResults.innerHTML = 'No results match your search.';

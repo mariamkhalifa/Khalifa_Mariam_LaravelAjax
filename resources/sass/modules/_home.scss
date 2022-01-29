@@ -14,6 +14,7 @@
     border: 1px solid $blue;
     padding: 30px;
     width: 80vw;
+    max-width: 800px;
     margin-bottom: 30px;
     h2 {
         color: $grey;
@@ -25,7 +26,6 @@
             font-weight: light;
         }
         textarea {
-            background-color: rgba($color: $white, $alpha: .1);
             margin-top: 8px;
             margin-bottom: 8px;
         }
@@ -47,6 +47,7 @@
 
 .messageCard {
     width: 80vw;
+    max-width: 800px;
     margin-bottom: 30px;
     
 }
@@ -77,4 +78,139 @@
     color: $grey;
     font-weight: light;
     margin-top: 8px;
+}
+
+.messageDelete {
+    font-size: 11px;
+    color: $grey;
+    font-weight: light;
+    margin: 0;
+    padding: 0;
+    text-decoration: underline;
+    background-color: $black;
+    border: none;
+    cursor: pointer;
+    @include transition;
+    @include hover2;
+}
+
+#gamesCon {
+    @include col;
+    align-items: center;
+}
+
+.gameCard {
+    @include col;
+    align-items: center;
+    width: 80vw;
+    margin-bottom: 40px;
+    background-color: rgba($grey, $alpha: .1);
+    @include transition;
+    @include hover3;
+    cursor: pointer;
+}
+
+.gameImg {
+    display: block;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    max-width: 300px;
+}
+
+.gameName {
+    margin-top: 10px;
+    width: 60%;
+    font-weight: bold;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gameYear {
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+#gameAdd {
+    border: 1px solid $blue;
+    padding: 10px 30px;
+    @include row;
+    align-items: center;
+    div {
+        margin-right: 20px;
+        font-size: 22px;
+    }
+    @include transition;
+    @include hover2;
+}
+
+#searchCon {
+    margin-top: 60px;
+    border-top: 1px solid $grey;
+    padding-top: 40px;
+}
+
+#searchForm {
+    margin-top: 20px;
+    p {
+        margin-top: 20px;
+    }
+    @include col;
+    input {
+        margin-top: 8px;
+        padding: 5px;
+        width: 50%;
+        max-width: 200px;
+    }
+    input:focus {
+        border: 1px solid $blue;
+    }
+}
+
+#searchResults {
+    margin-top: 20px;
+    margin-bottom: 80px;
+    color: $grey;
+    font-weight: light;
+    font-size: 14px;
+}
+
+#searchResults.results {
+   li {
+       margin-bottom: 20px;
+       padding: 20px;
+       background-color: rgba($grey, $alpha: .1);
+       cursor: pointer;
+       @include transition;
+       @include hover3;
+       a {
+            @include row;
+            justify-content: space-between;
+            align-items: center;
+       }
+       img {
+           width: 50px;
+       }
+   }
+}
+
+@media screen and (min-width: 700px) {
+    #gamesCon {
+        ul {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    .gameCard {
+        width: 30vw;
+        margin: 10px;
+    }
+    #gameAdd {
+        margin-top: 40px;
+    }
 }

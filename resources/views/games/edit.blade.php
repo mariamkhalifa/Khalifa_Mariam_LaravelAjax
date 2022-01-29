@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<section>
-    <h2>Edit Game</h2>
+<section id="editCon" class="container">
+    <h2 class="headline">Edit Game</h2>
 
     @if($errors->any())
         @foreach($errors->all() as $error)
 
-        <p>{{ $error }} </p>
+        <p class="formError">{{ $error }} </p>
 
         @endforeach
     @endif
 
-    <form method="POST" action="{{ route('games.update', ['game' => $game] ) }}" enctype="multipart/form-data">
+    <form class="form" method="POST" action="{{ route('games.update', ['game' => $game] ) }}" enctype="multipart/form-data">
     @csrf
     @method('put')
 
@@ -26,10 +26,10 @@
         <input id="release_year" name="release_year" type="number" value="{{ $game->release_year }}">
 
         <label for="desc">Description:</label>
-        <textarea id="desc" name="desc" col="3" row="11"></textarea>
+        <textarea id="desc" name="desc" col="3" row="11" value="{{ $game->desc }}"></textarea>
 
         <label for="review">What you thought about it:</label>
-        <textarea id="review" name="review" col="3" row="11"></textarea>
+        <textarea id="review" name="review" col="3" row="11" value="{{ $game->review }}"></textarea>
 
         <button type="submit">Edit Game</button>
 

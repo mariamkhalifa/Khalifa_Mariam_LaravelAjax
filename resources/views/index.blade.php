@@ -17,10 +17,10 @@
     <body>
         <h1 class="hidden">Metal Gear Solid Fans</h1>
 
-        <section>
-            <h2>Metal Gear Solid Fans</h2>
-            <p>This is the space for all MGS games fans to connect and socialize.</p>
-            <a href="http://localhost:8082/home">Start App</a>
+        <section id="landingCon">
+            <h2 id="landingTitle">Metal Gear Solid Fans</h2>
+            <p id="landingDesc">This is the space for all MGS games fans to connect and socialize. Post your favourite games and reviews. Discuss your favourite games with other fans.</p>
+            <a id="landingBtn" href="http://localhost:8082/home">Start App</a>
         </section>
 
     </body>

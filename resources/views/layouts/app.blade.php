@@ -29,6 +29,7 @@
             <div id="logo">MGS Fans</div> 
             <i id="burger" class="fas fa-bars"></i>
             <ul id="mainNav">
+                <li><a href="/home">Home</a></li>
                 <!-- Authentication Links -->
                 @guest
                     <li>

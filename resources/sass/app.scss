@@ -59,9 +59,24 @@ a {
     margin-bottom: 30px;
 }
 
+input, textarea {
+    color: $white;
+    background-color: rgba($color: $grey, $alpha: .1);
+    border: none;
+}
+
+button {
+    font-family: $font;
+    font-size: 16px;
+    color: $white;
+}
 
 
 
+
+@import 'modules/_landing';
 @import 'modules/_header';
 @import 'modules/_home';
+@import 'modules/_show';
+@import 'modules/_forms';
 

@@ -1,10 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<section>
-    <h2>Add New Game</h2>
+<section id="addCon" class="container">
+    <h2 class="headline">Add New Game</h2>
 
-    <form method="POST" action="{{ route('games.store') }}" enctype="multipart/form-data">
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+
+        <p class="formError">{{ $error }} </p>
+
+        @endforeach
+    @endif
+
+    <form class="form" method="POST" action="{{ route('games.store') }}" enctype="multipart/form-data">
     @csrf
 
         <label for="name">Name:</label>

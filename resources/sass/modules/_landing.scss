@@ -1,0 +1,32 @@
+#landingCon {
+    padding: 80px;
+    @include col;
+    align-items: center;
+}
+
+#landingTitle {
+    font-size: 50px;
+    font-family: $fontDisplay;
+    text-align: center;
+}
+
+#landingDesc {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 22px;
+}
+
+#landingBtn {
+    padding: 20px 40px;
+    margin-top: 40px;
+    border: 1px solid $blue;
+    @include transition;
+    @include hover2;
+}
+
+@media screen and (min-width: 700px) {
+    #landingTitle {
+        margin-top: 100px;
+        font-size: 80px;
+    }
+} 

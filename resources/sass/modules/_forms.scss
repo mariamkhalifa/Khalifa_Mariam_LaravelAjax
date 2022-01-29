@@ -1,0 +1,56 @@
+.authTitle {
+    text-align: center;
+}
+
+#remember {
+    label {
+        font-size: 14px;
+        font-weight: light;
+    }
+}
+
+#forgotPass {
+    text-decoration: underline;
+    margin-bottom: 80px;
+    @include transition;
+    @include hover2;
+}
+
+
+#editCon, #addCon {
+    h2 {
+        text-align: center
+    }
+}
+
+.form {
+    @include col;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70vw;
+    max-width: 500px;
+    label {
+        font-weight: light;
+        color: $grey;
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    input, textarea {
+        padding: 10px;
+        margin-top: 10px;
+    }
+    button {
+        background-color: $black;
+        border: 1px solid $blue;
+        padding: 10px;
+        margin-top: 30px;
+        margin-bottom: 60px;
+        @include transition;
+        @include hover2;
+        cursor: pointer;
+    }
+}
+
+.formError {
+    color: salmon;
+}
